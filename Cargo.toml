@@ -7,4 +7,6 @@ edition = "2021"
 
 [dependencies]
 crossterm = "0.28.1"
+dyn-clone = "1.0.19"
+rand = "0.9.1"
 rust_on_rails = "3.1.0"
