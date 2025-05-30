@@ -78,6 +78,15 @@ impl ShipTrait for DownBullet {
 
 #[derive(Debug, Clone)]
 pub struct Fly{shoot_next: bool, id: u32}
+
+impl Fly {
+	fn new() -> Fly {
+		let id = rand::rng().random();
+		println!("{}", id);
+		Fly{shoot_next: true, id}
+	}
+}
+
 impl ShipTrait for Fly {
 	fn draw(&self, ctx: &mut Context, x: u8, y: u8) {
 		ctx.draw(CanvasItem::Shape(
@@ -109,12 +118,9 @@ impl ShipTrait for Fly {
 		true
 	}
 	fn get_id(&self) -> u32 {
-		rand::rng().random()
+		0
 	}
 }
-	fn new() -> Fly {
-		Fly{shoot_next: true, id: rand::rng().random()}
-	}
 
 pub trait ShipTrait: std::fmt::Debug + DynClone {
 	fn draw(&self, ctx: &mut Context, x: u8, y: u8);
